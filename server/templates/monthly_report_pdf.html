@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Monthly Report</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <header class="bg-primary text-white text-center py-4">
+        <h2>MusicFusion</h2>
+    </header>
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col">
+                <h2 class="text-center">Monthly Report for {{data[0]["User"].UserName}}</h2>
+                <br>
+                <h3>Your Albums</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Album ID</th>
+                            <th scope="col">Album Name</th>
+                            <th scope="col">Artist</th>
+                            <th scope="col">Genre</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for album in data[0]["Albums"] %}
+                        <tr>
+                            <td>{{ album.Album_id }} </td>
+                            <td>{{ album.Name }}</td>
+                            <td>{{ album.Artist }}</td>
+                            <td>{{ album.Genre }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+                <br><br>
+                <h3>Your Songs</h3>
+                <br><br>
+
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Song ID</th>
+                            <th scope="col">Song Name</th>
+                            <th scope="col">Genre</th>
+                            <th scope="col">Artist</th>
+                            <th scope="col">Rating</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for song in data[0]["Songs"] %}
+                        <tr>
+                            <th>{{ song.Song_id }}</th>
+                            <td>{{ song.Name }} </td>
+                            <td>{{ song.Genre }}</td>
+                            <td>{{ song.Artist }}</td>
+                            <td>{{ song.Rating }}</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+                <br>
+                <br>
+                <p class="text-center">
+                    Thank you for choosing MusicFusion. Your passion for music drives us to continually improve our services.
+                    Here's a summary of your monthly activity on MusicFusion. We hope you've been enjoying the music journey with us!
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p><b>Visit us:</b> <a href="http://www.musicfusion.com" class="text-white" target="_blank">www.musicfusion.com</a></p>
+        </div>
+    </footer>
+</body>
+</html>
